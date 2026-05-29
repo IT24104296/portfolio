@@ -67,7 +67,7 @@ export const projects = [
     image: '/project_portfolio.png',
     color: 'from-violet-500 to-pink-600',
     accentColor: '#8b5cf6',
-    github: 'https://github.com/IT24104296',
+    github: 'https://github.com/IT24104296/portfolio',
     demo: '#',
     features: ['Three.js galaxy hero', 'Interactive 3D sphere', 'GSAP scroll animations', 'Radial skills visualization', 'Expanding project cards', 'Lenis smooth scroll'],
     category: 'Full Stack',
