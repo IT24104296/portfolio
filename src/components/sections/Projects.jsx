@@ -5,7 +5,6 @@ import { FaGithub } from 'react-icons/fa';
 import { projects } from '../../data/projects';
 
 function ProjectModal({ project, onClose }) {
-  const [imgIdx, setImgIdx] = useState(0);
   if (!project) return null;
 
   return (

@@ -1,20 +1,21 @@
-import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
+function pseudoRandom(seed) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+const particles = Array.from({ length: 40 }, (_, i) => ({
+  id: i,
+  left: `${pseudoRandom(i + 1) * 100}%`,
+  top: `${pseudoRandom(i + 41) * 100}%`,
+  size: 1 + pseudoRandom(i + 81) * 2,
+  duration: 12 + pseudoRandom(i + 121) * 18,
+  delay: pseudoRandom(i + 161) * 10,
+  opacity: 0.15 + pseudoRandom(i + 201) * 0.35,
+}));
+
 function Particles() {
-  const particles = useMemo(
-    () =>
-      Array.from({ length: 40 }, (_, i) => ({
-        id: i,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        size: 1 + Math.random() * 2,
-        duration: 12 + Math.random() * 18,
-        delay: Math.random() * 10,
-        opacity: 0.15 + Math.random() * 0.35,
-      })),
-    [],
-  );
 
   return (
     <div className="global-particles" aria-hidden>

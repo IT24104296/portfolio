@@ -1,7 +1,6 @@
-import { useRef, useMemo } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Stars, Float } from '@react-three/drei';
-import * as THREE from 'three';
 
 function FloatingRing({ radius, speed, color, tilt }) {
   const ref = useRef();
@@ -95,17 +94,25 @@ function HolographicSphere({ mouse }) {
   );
 }
 
+function particleSeed(i, salt) {
+  const x = Math.sin((i + salt) * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+const PARTICLE_COUNT = 200;
+const particlePositions = (() => {
+  const arr = new Float32Array(PARTICLE_COUNT * 3);
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    arr[i * 3] = (particleSeed(i, 1) - 0.5) * 12;
+    arr[i * 3 + 1] = (particleSeed(i, 2) - 0.5) * 12;
+    arr[i * 3 + 2] = (particleSeed(i, 3) - 0.5) * 8;
+  }
+  return arr;
+})();
+
 function ParticleField() {
-  const count = 200;
-  const positions = useMemo(() => {
-    const arr = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 12;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 12;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 8;
-    }
-    return arr;
-  }, []);
+  const count = PARTICLE_COUNT;
+  const positions = particlePositions;
 
   const ref = useRef();
   useFrame((state) => {

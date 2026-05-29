@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { skills, additionalSkills } from '../../data/skills';
 
 const CX = 280;
@@ -146,7 +146,7 @@ export default function Skills() {
                 style={{ filter: 'drop-shadow(0 0 30px rgba(0,212,255,0.1))' }}
               >
                 {/* Outer decorative rings */}
-                {[230, 210, 190].map((r, i) => (
+                {[230, 210, 190].map((r) => (
                   <circle
                     key={r}
                     cx={CX}
