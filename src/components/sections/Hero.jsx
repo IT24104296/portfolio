@@ -38,7 +38,7 @@ export default function Hero() {
       <div className="orb w-[300px] h-[300px] top-[40%] left-[40%] bg-blue-600/5" />
 
       <div className="container-custom relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen pt-20 pb-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen pt-20 pb-12">
 
           {/* Left: Text Content */}
           <motion.div
@@ -59,10 +59,10 @@ export default function Hero() {
 
             {/* Greeting */}
             <motion.div variants={itemVariants}>
-              <p className="font-mono text-sm text-cyan-400/70 tracking-[0.3em] uppercase mb-2">
+              <p className="font-mono text-xs md:text-sm text-cyan-400/70 tracking-[0.3em] uppercase mb-2">
                 Hello World, I'm
               </p>
-              <h1 className="font-orbitron text-5xl md:text-6xl xl:text-7xl font-black leading-tight">
+              <h1 className="font-orbitron text-4xl md:text-6xl xl:text-7xl font-black leading-tight">
                 <span className="neon-text animate-glitch block">VAHINTHAN</span>
               </h1>
             </motion.div>
@@ -90,7 +90,7 @@ export default function Hero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-slate-400 text-base leading-relaxed max-w-md"
+              className="text-slate-400 text-base leading-relaxed max-w-md text-justify"
             >
               Crafting immersive digital experiences at the intersection of
               <span className="text-cyan-400"> software engineering</span> and
@@ -99,20 +99,20 @@ export default function Hero() {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-2">
-              <button onClick={scrollToProjects} className="btn-neon btn-neon-solid">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap gap-4 mt-6">
+              <button onClick={scrollToProjects} className="btn-neon btn-neon-solid w-full sm:w-auto justify-center">
                 <span>View Projects</span>
               </button>
-              <a href="/resume.pdf" download="Vahinthan_Resume.pdf" className="btn-neon">
+              <a href="/resume.pdf" download="Vahinthan_Resume.pdf" className="btn-neon w-full sm:w-auto justify-center">
                 <Download size={14} />
                 <span>Resume</span>
               </a>
             </motion.div>
 
             {/* Social links */}
-            <motion.div variants={itemVariants} className="flex items-center gap-4 mt-2">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4">
               <span className="font-mono text-xs text-slate-600 tracking-widest">FIND ME ON</span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 w-full sm:w-auto">
                 <a
                   href="https://github.com/IT24104296"
                   target="_blank"
@@ -138,7 +138,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
-            className="relative h-[450px] lg:h-[600px] w-full"
+            className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full"
           >
             <Suspense fallback={
               <div className="w-full h-full flex items-center justify-center">

@@ -122,10 +122,10 @@ export default function Skills() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20"
         >
           <div className="section-tag justify-center mb-4">Arsenal</div>
-          <h2 className="font-orbitron text-4xl md:text-5xl font-black text-white">
+          <h2 className="font-orbitron text-3xl md:text-5xl font-black text-white">
             Tech <span className="neon-text">Skills</span>
           </h2>
           <p className="text-slate-500 mt-4 font-mono text-sm">Hover a node to explore</p>
@@ -247,7 +247,7 @@ export default function Skills() {
                     initial={{ opacity: 0, x: 30 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.4 + i * 0.06 }}
-                    className={`group flex items-center gap-3.5 glass rounded-lg px-4 py-3 cursor-default transition-all duration-300 ${
+                    className={`group flex items-center gap-3.5 glass rounded-lg px-4 py-4 cursor-default transition-all duration-300 ${
                       activeSkill === i ? 'neon-border' : 'border border-white/5 hover:border-white/10'
                     }`}
                     onMouseEnter={() => setActiveSkill(i)}
@@ -298,7 +298,7 @@ export default function Skills() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              <h4 className="font-mono text-xs text-slate-500 tracking-widest uppercase mb-3">Also familiar with</h4>
+              <h4 className="font-mono text-xs text-slate-500 tracking-widest uppercase mb-4 mt-3">Also familiar with</h4>
               <div className="flex flex-wrap gap-2">
                 {additionalSkills.map(s => (
                   <span

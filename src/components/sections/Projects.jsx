@@ -47,13 +47,13 @@ function ProjectModal({ project, onClose }) {
 
         <div className="p-6 sm:p-8">
           {/* Overview */}
-          <div className="mb-6">
+          <div className="mb-8">
             <h3 className="font-orbitron text-sm font-bold mb-3" style={{ color: project.accentColor }}>OVERVIEW</h3>
-            <p className="text-slate-300 leading-relaxed">{project.longDescription}</p>
+            <p className="text-slate-300 leading-relaxed text-justify">{project.longDescription}</p>
           </div>
 
           {/* Features */}
-          <div className="mb-6">
+          <div className="mb-8">
             <h3 className="font-orbitron text-sm font-bold mb-3" style={{ color: project.accentColor }}>KEY FEATURES</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {project.features.map(f => (
@@ -65,7 +65,7 @@ function ProjectModal({ project, onClose }) {
           </div>
 
           {/* Tech stack */}
-          <div className="mb-8">
+          <div className="mb-10">
             <h3 className="font-orbitron text-sm font-bold mb-3" style={{ color: project.accentColor }}>TECH STACK</h3>
             <div className="flex flex-wrap gap-2">
               {project.tech.map(t => (
@@ -81,12 +81,12 @@ function ProjectModal({ project, onClose }) {
           </div>
 
           {/* Links */}
-          <div className="flex gap-4">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-neon flex-1 justify-center">
-                            <FaGithub size={15} /> GitHub
+          <div className="flex flex-col sm:flex-row gap-4 mt-2">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-neon w-full justify-center">
+              <FaGithub size={15} /> GitHub
             </a>
             {project.demo !== '#' && (
-              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-neon btn-neon-solid flex-1 justify-center">
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-neon btn-neon-solid w-full justify-center">
                 <ExternalLink size={15} /> Live Demo
               </a>
             )}
@@ -113,13 +113,13 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16 md:mb-20"
         >
           <div className="section-tag justify-center mb-4">Work</div>
-          <h2 className="font-orbitron text-4xl md:text-5xl font-black text-white">
+          <h2 className="font-orbitron text-3xl md:text-5xl font-black text-white">
             Featured <span className="neon-text">Projects</span>
           </h2>
-          <p className="text-slate-500 mt-4 font-mono text-sm">Hover to expand · Click for details</p>
+          <p className="text-slate-500 mt-4 font-mono text-sm text-center">Hover to expand · Click for details</p>
         </motion.div>
 
         {/* Expanding cards — desktop */}
@@ -255,7 +255,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Mobile / tablet: vertical cards */}
-        <div className="flex lg:hidden flex-col gap-4">
+        <div className="flex lg:hidden flex-col gap-6">
           {projects.map((project, i) => (
             <motion.div
               key={project.id}
@@ -270,13 +270,13 @@ export default function Projects() {
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cyber-black to-transparent" />
               </div>
-              <div className="p-5 glass">
+              <div className="p-5 sm:p-6 glass">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-mono text-xs" style={{ color: project.accentColor }}>{project.category}</span>
                   <span className="font-orbitron text-xs text-slate-600">{project.number}</span>
                 </div>
                 <h3 className="font-orbitron font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-slate-400 text-sm line-clamp-2 mb-3">{project.description}</p>
+                <p className="text-slate-400 text-sm line-clamp-2 mb-4 text-justify">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tech.slice(0, 3).map(t => (
                     <span key={t} className="font-mono text-xs px-2 py-0.5 rounded"

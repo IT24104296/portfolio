@@ -8,7 +8,7 @@ function TimelineItem({ item, index }) {
   const isLeft = index % 2 === 0;
 
   return (
-    <div ref={ref} className="relative flex items-start gap-0 w-full mb-12">
+    <div ref={ref} className="relative flex items-start gap-0 w-full mb-16">
       {/* Left side content (desktop) */}
       <div className={`hidden md:flex flex-col flex-1 ${isLeft ? 'items-end pr-10' : 'items-start pl-10 opacity-0 pointer-events-none'}`}>
         {isLeft && (
@@ -16,7 +16,7 @@ function TimelineItem({ item, index }) {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="glass rounded-2xl p-5 max-w-sm border border-white/5 hover:border-cyan-400/20 transition-all duration-300 group"
+            className="glass rounded-2xl p-6 max-w-sm border border-white/10 hover:border-cyan-400/30 transition-all duration-300 group"
             style={{ boxShadow: item.isFuture ? `0 0 20px ${item.color}15` : 'none' }}
           >
             <CardContent item={item} />
@@ -30,7 +30,7 @@ function TimelineItem({ item, index }) {
           initial={{ scale: 0, opacity: 0 }}
           animate={inView ? { scale: 1, opacity: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="w-12 h-12 rounded-full glass flex items-center justify-center text-xl flex-shrink-0"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center text-lg md:text-xl flex-shrink-0"
           style={{
             border: `2px solid ${item.color}60`,
             boxShadow: `0 0 20px ${item.color}30, 0 0 40px ${item.color}10`,
@@ -50,7 +50,7 @@ function TimelineItem({ item, index }) {
           initial={{ opacity: 0, y: -10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="mt-2 px-3 py-1 rounded-full font-orbitron text-xs font-bold"
+          className="mt-3 px-3 py-1.5 rounded-full font-orbitron text-xs font-bold"
           style={{
             background: `${item.color}15`,
             color: item.color,
@@ -69,7 +69,7 @@ function TimelineItem({ item, index }) {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="glass rounded-2xl p-5 max-w-sm border border-white/5 hover:border-cyan-400/20 transition-all duration-300 group"
+            className="glass rounded-2xl p-6 max-w-sm border border-white/10 hover:border-cyan-400/30 transition-all duration-300 group"
           >
             <CardContent item={item} />
           </motion.div>
@@ -81,7 +81,7 @@ function TimelineItem({ item, index }) {
         initial={{ opacity: 0, x: 30 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="md:hidden glass rounded-2xl p-4 flex-1 border border-white/5"
+        className="md:hidden glass rounded-2xl p-4 sm:p-6 flex-1 border border-white/10 ml-4 sm:ml-6"
       >
         <CardContent item={item} />
       </motion.div>
@@ -100,10 +100,10 @@ function CardContent({ item }) {
           </span>
         </div>
       )}
-      <h3 className="font-orbitron font-bold text-white text-sm mb-2 group-hover:text-cyan-400 transition-colors">
+      <h3 className="font-orbitron font-bold text-white text-sm mb-3 group-hover:text-cyan-400 transition-colors">
         {item.title}
       </h3>
-      <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+      <p className="text-slate-400 text-sm leading-loose text-justify">{item.description}</p>
     </>
   );
 }
@@ -122,23 +122,23 @@ export default function Timeline() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20"
         >
           <div className="section-tag justify-center mb-4">Journey</div>
-          <h2 className="font-orbitron text-4xl md:text-5xl font-black text-white">
+          <h2 className="font-orbitron text-3xl md:text-5xl font-black text-white">
             My <span className="neon-text">Timeline</span>
           </h2>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto overflow-x-hidden">
           {/* Vertical glowing line (desktop) */}
           <div
             className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block timeline-line"
             style={{ zIndex: 0 }}
           />
           {/* Vertical line (mobile) */}
-          <div className="absolute left-[22px] top-0 bottom-0 w-px md:hidden"
+          <div className="absolute left-[19px] sm:left-[22px] top-0 bottom-0 w-px md:hidden"
             style={{ background: 'linear-gradient(180deg, transparent, #00d4ff 10%, #7c3aed 90%, transparent)', boxShadow: '0 0 10px rgba(0,212,255,0.3)' }}
           />
 

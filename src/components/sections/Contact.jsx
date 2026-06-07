@@ -56,22 +56,24 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20"
         >
           <div className="section-tag justify-center mb-4">Contact</div>
-          <h2 className="font-orbitron text-4xl md:text-5xl font-black text-white leading-tight">
+          <h2 className="font-orbitron text-3xl md:text-5xl font-black text-white leading-tight">
             Let's Build Something
             <br />
             <span className="neon-text">Extraordinary</span>
           </h2>
-          <p className="text-slate-400 mt-6 max-w-lg mx-auto leading-relaxed">
-            Whether you have an internship opportunity, a project idea, or just want to say hi —
-            I'd love to hear from you.
-          </p>
+          <div className="flex justify-center w-full mt-10 mb-8">
+            <p className="text-slate-400 max-w-lg text-center leading-relaxed">
+              Whether you have an internship opportunity, a project idea, or just want to say hi —
+              I'd love to hear from you.
+            </p>
+          </div>
         </motion.div>
 
         {/* Contact cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full" style={{  marginTop: '30px',marginBottom: '30px' }}>
           {contacts.map((contact, i) => (
             <motion.a
               key={contact.id}
@@ -82,7 +84,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="glass rounded-2xl p-6 relative overflow-hidden group block text-center cursor-pointer"
+              className="glass rounded-2xl p-5 sm:p-7 relative overflow-hidden group block text-center cursor-pointer"
               style={{
                 border: `1px solid ${contact.color}25`,
                 textDecoration: 'none',
@@ -117,7 +119,7 @@ export default function Contact() {
               >
                 {contact.label}
               </h3>
-              <p className="text-slate-500 text-xs mb-2">{contact.description}</p>
+              <p className="text-slate-500 text-xs mb-3 text-center">{contact.description}</p>
               <p className="text-slate-300 text-xs font-mono break-all">{contact.value}</p>
 
               {/* Arrow */}
@@ -136,7 +138,8 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center"
+          className="text-center w-full"
+          style={{ marginTop: '50px' }}
         >
           <div className="glass neon-border rounded-2xl p-10 inline-block max-w-lg w-full relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-purple-600/5" />
@@ -150,7 +153,7 @@ export default function Contact() {
               <a
                 href="/resume.pdf"
                 download="Vahinthan_Resume.pdf"
-                className="btn-neon btn-neon-solid inline-flex mx-auto text-sm px-8 py-3"
+                className="btn-neon btn-neon-solid flex mx-auto text-sm px-8 py-3 w-full sm:w-auto justify-center"
               >
                 <Download size={16} />
                 <span>Download Resume</span>
